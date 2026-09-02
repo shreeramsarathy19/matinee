@@ -1,0 +1,49 @@
+# Matinee settings — copy this file to config.yaml and edit.
+#   cp config.example.yaml config.yaml
+# Everything has a sensible default; a missing config.yaml also works.
+
+# Where your videos live. Each top-level folder becomes a row on the home page;
+# file names become titles. Can be an external disk: /Volumes/MyDisk/Library
+library: ./library
+
+# The name shown in the top-left logo and browser tab. Make it yours.
+app_name: Matinee
+
+# Seconds the player's skip-back / skip-forward buttons jump.
+skip_seconds: 30
+
+port: 8765
+
+# Files with these extensions are listed. MP4/MOV/M4V play everywhere;
+# MKV/AVI play in desktop browsers and are converted for iPhone (see below).
+extensions: [mp4, m4v, mov, webm, mkv, avi]
+
+# How often (seconds) the library folder is re-scanned for new/removed files.
+rescan_seconds: 30
+
+# Tidy up anything dropped into the library automatically:
+#   Breaking.Bad.S01E03.720p.HDTV.x264-KILLERS.mkv -> Breaking Bad/Season 01/Breaking Bad - S01E03.mkv
+# Unsure names are only suggested on the Organize page, never moved silently.
+auto_organize: true
+
+# iPhone Safari can't play MKV/AVI. A background worker converts such files to
+# MP4 one at a time (fast re-wrap when possible). Needs ffmpeg on PATH.
+convert_for_iphone: true
+
+# After a conversion the original is parked in library/.originals/ (hidden).
+# false = delete originals instead. The Organize page can empty them to the Bin.
+keep_originals: true
+
+# Who's watching? Each name gets its own watch progress and Continue Watching.
+# First name is the default.
+profiles: [You, Family]
+
+# Optional: the player's CC button can fetch missing subtitles from
+# OpenSubtitles.com (exact file-hash match first). Free account + API key from
+# https://www.opensubtitles.com/consumers — use your site USERNAME, not email.
+# opensubtitles:
+#   username: your-username
+#   password: your-password
+#   api_key: your-api-key
+#   languages: [en]
+#   daily_limit: 20     # hard cap so the free tier is never exceeded

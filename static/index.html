@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Matinee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#141414">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Matinee">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/static/icons/icon-192.png">
+  <link rel="stylesheet" href="/static/style.css?v=5fff793b">
+</head>
+<body>
+  <header class="topbar" id="topbar">
+    <a class="logo" href="#/" aria-label="Matinee home">MATIN<span>ÉE</span><small class="tagline">home cinema for your own files</small></a>
+    <div class="topbar-right">
+      <label class="search" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 14 15.5l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+        <input id="search" type="search" placeholder="Search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+      </label>
+      <button class="iconbtn" id="castBtn" type="button" hidden aria-label="Play on another screen" title="Play on another screen">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M21 3H3a2 2 0 0 0-2 2v3h2V5h18v14h-7v2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM1 18v3h3a3 3 0 0 0-3-3zm0-4v2a5 5 0 0 1 5 5h2a7 7 0 0 0-7-7zm0-4v2a9 9 0 0 1 9 9h2A11 11 0 0 0 1 10z"/></svg>
+      </button>
+      <button class="iconbtn avatarbtn" id="profileBtn" type="button" hidden aria-label="Switch profile" title="Switch profile"></button>
+      <a class="iconbtn" id="organizeBtn" href="#/organize" title="Organize files" aria-label="Organize files">
+        <span class="navbadge" id="organizeBadge" hidden></span>
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z"/></svg>
+      </a>
+      <button class="iconbtn" id="phoneBtn" title="Open on your iPhone" aria-label="Open on your iPhone">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M17 1H7a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm0 18H7V5h10v14z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="main"></main>
+
+  <div id="player" class="player" hidden></div>
+  <div id="modal" class="modal" hidden></div>
+  <a id="activityChip" class="activity-chip" href="#/organize" hidden></a>
+  <div id="remoteBar" class="remotebar" hidden></div>
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="/static/app.js?v=c539a676"></script>
+</body>
+</html>

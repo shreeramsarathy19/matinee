@@ -1,0 +1,11 @@
+.venv/
+data/
+library/
+__pycache__/
+*.pyc
+.DS_Store
+config.yaml
+.claude/
+nohup.out
+*.log
+static/app.js

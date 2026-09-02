@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+pyyaml
+
+# tests only
+httpx
