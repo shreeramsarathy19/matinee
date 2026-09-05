@@ -1,5 +1,7 @@
 # Matinee
 
+[![tests](https://github.com/shreeramsarathy19/matinee/actions/workflows/tests.yml/badge.svg)](https://github.com/shreeramsarathy19/matinee/actions/workflows/tests.yml)
+
 **Home cinema for your own video files.**
 
 Point Matinee at a folder of videos and get a Netflix-style site for them: a
