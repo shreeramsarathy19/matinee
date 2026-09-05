@@ -1,4 +1,5 @@
 """Subtitle conversion hygiene."""
+import shutil
 import tempfile
 import unittest
 from pathlib import Path
@@ -10,18 +11,15 @@ class SubsTests(unittest.TestCase):
     def test_ass_tags_and_font_wrappers_stripped(self):
         srt = ("1\n00:00:01,000 --> 00:00:02,000\n{\\an5}{\\k12}Hello\n\n"
                "2\n00:00:03,000 --> 00:00:04,000\n<font face=\"X\">World</font>\n")
-        p = Path(tempfile.mkstemp(suffix=".srt")[1])
-        p.write_text(srt)
+        d = tempfile.mkdtemp(prefix="matinee-subs-")
+        p = Path(d) / "sample.srt"
+        p.write_text(srt, encoding="utf-8")
         v = subs.to_vtt(p)
-        p.unlink()
+        shutil.rmtree(d, ignore_errors=True)
         self.assertIn("Hello", v)
         self.assertIn("World", v)
         self.assertNotIn("an5", v)
         self.assertNotIn("<font", v)
-
-
-if __name__ == "__main__":
-    unittest.main()
 
 
 class ShiftTests(unittest.TestCase):
@@ -42,3 +40,7 @@ class ShiftTests(unittest.TestCase):
         out = subs.shift(v, 1)
         self.assertIn("00:00:02.000 --> 00:00:03.000", out)
         self.assertIn("At 00:00:01.000 sharp", out)
+
+
+if __name__ == "__main__":
+    unittest.main()

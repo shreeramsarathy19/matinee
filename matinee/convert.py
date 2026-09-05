@@ -178,8 +178,7 @@ class Converter:
 
     def free_bytes(self) -> int:
         try:
-            st = os.statvfs(self.cfg.library)
-            return st.f_bavail * st.f_frsize
+            return shutil.disk_usage(self.cfg.library).free   # works on macOS, Linux and Windows
         except OSError:
             return 1 << 60
 
