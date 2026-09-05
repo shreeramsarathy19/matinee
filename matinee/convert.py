@@ -443,8 +443,12 @@ class Converter:
         self.poke()
 
     def _exec(self, cmd: List[str], job: Job, duration: float) -> None:
-        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
-                                preexec_fn=lambda: os.nice(10))
+        # run ffmpeg at low priority so the machine stays responsive while converting
+        if os.name == "nt":
+            nice = {"creationflags": subprocess.BELOW_NORMAL_PRIORITY_CLASS}
+        else:
+            nice = {"preexec_fn": lambda: os.nice(10)}
+        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, **nice)
         self._proc = proc
         err_lines: List[str] = []
 
